@@ -26,16 +26,11 @@ public class Appointment extends Auditable implements HasIdentifier {
   @JoinColumn(name = "doctor_id")
   private Doctor doctor;
 
-  @Column(name = "completion_status")
+  @Column(name = "completion_status", nullable = false)
   @Enumerated(EnumType.STRING)
-  private Status status;
+  private Status status = Status.SCHEDULED;
 
-  @Column(name = "appointment_time")
+  @Column(name = "appointment_time", nullable = false)
   private LocalDateTime appointmentTime;
 
-  @Override
-  public Long getId() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getId'");
-  }
 }
