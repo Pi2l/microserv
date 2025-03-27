@@ -1,11 +1,11 @@
-package org.m.clinic.controller.user;
+package org.m.clinic.api.v1.user;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.m.clinic.controller.shared.AbstractDto;
+import org.m.clinic.api.v1.shared.AbstractDto;
 import org.m.clinic.model.Role;
 import org.m.clinic.model.User;
 

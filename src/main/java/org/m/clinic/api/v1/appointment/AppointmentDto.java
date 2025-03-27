@@ -1,4 +1,4 @@
-package org.m.clinic.controller.appointment;
+package org.m.clinic.api.v1.appointment;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
@@ -7,12 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.m.clinic.controller.shared.AbstractDto;
+import org.m.clinic.api.v1.shared.AbstractDto;
 import org.m.clinic.model.*;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 
 @NoArgsConstructor
 @AllArgsConstructor

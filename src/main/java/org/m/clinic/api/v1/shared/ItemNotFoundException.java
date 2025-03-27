@@ -1,4 +1,4 @@
-package org.m.clinic.controller.shared;
+package org.m.clinic.api.v1.shared;
 
 public class ItemNotFoundException extends RuntimeException {
   public ItemNotFoundException(Long id) {

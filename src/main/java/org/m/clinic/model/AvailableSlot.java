@@ -38,10 +38,4 @@ public class AvailableSlot extends Auditable implements HasIdentifier {
   @Column(nullable = false, name = "is_booked")
   private Boolean isBooked = false;
 
-  @Override
-  public Long getId() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getId'");
-  }
-
 }

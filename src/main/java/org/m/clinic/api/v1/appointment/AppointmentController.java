@@ -1,6 +1,7 @@
-package org.m.clinic.controller.appointment;
+package org.m.clinic.api.v1.appointment;
 
-import org.m.clinic.controller.shared.CrudController;
+import lombok.RequiredArgsConstructor;
+import org.m.clinic.api.v1.shared.CrudController;
 import org.m.clinic.model.Appointment;
 import org.m.clinic.model.Doctor;
 import org.m.clinic.model.Patient;
@@ -8,14 +9,18 @@ import org.m.clinic.service.AppointmentService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RequiredArgsConstructor
 @RestController
-@RequestMapping(AppointmentController.APPOINTMENT_API)
-public class AppointmentController extends CrudController<Appointment, AppointmentService, AppointmentDto> {
+@RequestMapping(AppointmentController.API_URL)
+public class AppointmentController extends CrudController<Appointment, AppointmentDto> {
 
-  public static final String APPOINTMENT_API = "/api/v1/appointments";
+  public static final String API_URL = "/api/v1/appointments";
 
-  public AppointmentController(AppointmentService appointmentService) {
-    super(appointmentService);
+  private final AppointmentService appointmentService;
+
+  @Override
+  protected AppointmentService getService() {
+    return appointmentService;
   }
 
   @Override

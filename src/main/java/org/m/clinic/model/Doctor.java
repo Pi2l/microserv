@@ -34,15 +34,5 @@ public class Doctor extends Auditable implements HasIdentifier {
   private String specialization;
 
   @Column(name = "experience_years")
-  private int experience_years;
-
-  public Doctor(Long id) {
-    this.id = id;
-  }
-
-  @Override
-  public Long getId() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getId'");
-  }
+  private int experienceYears;
 }

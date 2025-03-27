@@ -1,10 +1,9 @@
-package org.m.clinic.controller.shared;
+package org.m.clinic.api.v1.shared;
 
 import cz.jirutka.rsql.parser.RSQLParser;
 import cz.jirutka.rsql.parser.ast.Node;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.websocket.server.PathParam;
-import lombok.AllArgsConstructor;
 import org.hibernate.validator.constraints.Range;
 import org.m.clinic.model.HasIdentifier;
 import org.m.clinic.repository.rsql.CustomRsqlVisitor;
@@ -21,14 +20,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Validated
-@AllArgsConstructor
 public abstract class CrudController<
         Entity extends HasIdentifier,
-        Service extends CrudService<Entity, Long>,
         Dto extends AbstractDto<Entity>
 > {
 
-  protected final Service service;
+  protected abstract CrudService<Entity, Long> getService();
 
   protected abstract Dto convertToDto(Entity entity);
   protected abstract Entity mapDtoToEntity(Dto requestBody, Entity entityToFill);
@@ -49,7 +46,7 @@ public abstract class CrudController<
     }
 
     Pageable pageable = PageRequest.of(index, size, sort);
-    Page<Entity> entityPage = service.getAll( pageable, specification );
+    Page<Entity> entityPage = getService().getAll( pageable, specification );
     List<Dto> responses = entityPage.getContent().stream()
             .map( this::convertToDto ).toList();
 
@@ -91,7 +88,7 @@ public abstract class CrudController<
   }
 
   protected Entity getEntity(Long id) {
-    Entity entity = service.get(id);
+    Entity entity = getService().get(id);
     if (entity == null) {
       throw new ItemNotFoundException(id);
     }
@@ -99,15 +96,15 @@ public abstract class CrudController<
   }
 
   protected Entity createEntity(Entity entity, Dto dto) {
-    return service.create( entity );
+    return getService().create( entity );
   }
 
   protected Entity updateEntity(Entity entity, Dto dto) {
-    return service.update( entity );
+    return getService().update( entity );
   }
 
   protected void deleteEntity(Long id) {
-    service.delete(id);
+    getService().delete(id);
   }
 
   protected Specification<Entity> getSpecificationFromSearch(String search) {

@@ -3,14 +3,14 @@ package org.m.clinic.model;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "appointments")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class Appointment extends Auditable implements HasIdentifier {
 

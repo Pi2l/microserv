@@ -31,7 +31,8 @@ public class MedicalRecord extends Auditable implements HasIdentifier {
   @JoinColumn(name = "doctor_id")
   private Doctor doctor;
 
-  @Column(name = "appointment_id")
+  @ManyToOne
+  @JoinColumn(name = "appointment_id")
   private Appointment appointment;
 
   @Column(nullable = false)
@@ -40,9 +41,4 @@ public class MedicalRecord extends Auditable implements HasIdentifier {
   @Column(nullable = false)
   private String prescription;
 
-  @Override
-  public Long getId() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getId'");
-  }
 }

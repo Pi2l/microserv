@@ -1,19 +1,25 @@
-package org.m.clinic.controller.user;
+package org.m.clinic.api.v1.user;
 
-import org.m.clinic.controller.shared.CrudController;
+import lombok.RequiredArgsConstructor;
+import org.m.clinic.api.v1.shared.CrudController;
 import org.m.clinic.model.User;
+import org.m.clinic.service.CrudService;
 import org.m.clinic.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RequiredArgsConstructor
 @RestController
-@RequestMapping(UserController.USER_API)
-public class UserController extends CrudController<User, UserService, UserDto> {
+@RequestMapping(UserController.API_URL)
+public class UserController extends CrudController<User, UserDto> {
 
-  public static final String USER_API = "/api/v1/users";
+  public static final String API_URL = "/api/v1/users";
 
-  public UserController(UserService userService) {
-    super(userService);
+  private final UserService userService;
+
+  @Override
+  protected CrudService<User, Long> getService() {
+    return userService;
   }
 
   @Override
