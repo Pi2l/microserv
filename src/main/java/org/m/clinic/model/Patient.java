@@ -21,7 +21,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Patient extends Auditable implements HasIdentifier {
+public class Patient extends Auditable implements HasIdentifier, HasUser {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

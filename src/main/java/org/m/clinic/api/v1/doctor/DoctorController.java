@@ -3,7 +3,6 @@ package org.m.clinic.api.v1.doctor;
 import lombok.RequiredArgsConstructor;
 import org.m.clinic.api.v1.shared.CrudController;
 import org.m.clinic.model.Doctor;
-import org.m.clinic.model.User;
 import org.m.clinic.service.CrudService;
 import org.m.clinic.service.DoctorService;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,25 +25,12 @@ public class DoctorController extends CrudController<Doctor, DoctorDto> {
 
   @Override
   protected DoctorDto convertToDto(Doctor doctor) {
-    var dto = new DoctorDto();
-    dto.setId(doctor.getId());
-    var user = doctor.getUser();
-    if (user != null) {
-      dto.setUserId(user.getId());
-    }
-    dto.setSpecialization(doctor.getSpecialization());
-    dto.setExperienceYears(doctor.getExperienceYears());
-    return dto;
+    return DoctorMapper.INSTANCE.entityToDto( doctor );
   }
 
   @Override
   protected Doctor mapDtoToEntity(DoctorDto dto, Doctor entityToFill) {
-    var user = User.builder().id(dto.getId()).build();
-
-    entityToFill.setId(dto.getId());
-    entityToFill.setUser(user);
-    entityToFill.setSpecialization(dto.getSpecialization());
-    entityToFill.setExperienceYears(dto.getExperienceYears());
-    return entityToFill;
+    dto.setId( entityToFill.getId() );
+    return DoctorMapper.INSTANCE.dtoToEntity( dto );
   }
 }

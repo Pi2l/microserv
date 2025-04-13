@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.m.clinic.api.v1.shared.AbstractDto;
+import org.m.clinic.api.v1.user.UserDto;
 import org.m.clinic.model.Patient;
 
 import java.util.Date;
@@ -19,7 +20,7 @@ import java.util.Date;
 public class PatientDto extends AbstractDto<Patient> {
 
   private Long id;
-  private Long userId;
+  private UserDto userDto;
 
   @NotBlank
   private String phoneNumber;

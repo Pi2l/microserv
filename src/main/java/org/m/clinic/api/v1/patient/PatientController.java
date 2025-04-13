@@ -1,13 +1,14 @@
 package org.m.clinic.api.v1.patient;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.m.clinic.api.v1.shared.CrudController;
 import org.m.clinic.model.Patient;
 import org.m.clinic.service.CrudService;
 import org.m.clinic.service.PatientService;
+import org.m.clinic.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.m.clinic.model.User;
 
 
 @RequiredArgsConstructor
@@ -18,6 +19,7 @@ public class PatientController extends CrudController<Patient, PatientDto> {
   public static final String API_URL = "/api/v1/patients";
 
   private final PatientService patientService;
+  private final UserService userService;
 
   @Override
   protected CrudService<Patient, Long> getService() {
@@ -26,25 +28,22 @@ public class PatientController extends CrudController<Patient, PatientDto> {
 
   @Override
   protected PatientDto convertToDto(Patient patient) {
-    var dto = new PatientDto();
-    dto.setId(patient.getId());
-    var user = patient.getUser();
-    if (user != null) {
-      dto.setUserId(user.getId());
-    }
-    dto.setPhoneNumber(patient.getPhoneNumber());
-    dto.setDateOfBirth(patient.getDateOfBirth());
-    return dto;
+    return PatientMapper.INSTANCE.entityToDto(patient);
   }
 
   @Override
   protected Patient mapDtoToEntity(PatientDto dto, Patient entityToFill) {
-    var user = User.builder().id(dto.getId()).build();
+    dto.setId( entityToFill.getId() );
+    return PatientMapper.INSTANCE.dtoToEntity(dto);
+  }
 
-    entityToFill.setId(dto.getId());
-    entityToFill.setUser(user);
-    entityToFill.setPhoneNumber(dto.getPhoneNumber());
-    entityToFill.setDateOfBirth(dto.getDateOfBirth());
-    return entityToFill;
+  @Override
+  protected void beforeEntityUpdate(Patient entity) {
+    var user = entity.getUser();
+    Long userId = entity.getId();
+    if (user != null && user.getId() != null) {
+      userId = user.getId();
+    }
+    entity.setUser( getEntity(userId, userService, false) );
   }
 }

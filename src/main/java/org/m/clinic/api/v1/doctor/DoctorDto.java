@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.m.clinic.api.v1.shared.AbstractDto;
+import org.m.clinic.api.v1.user.UserDto;
 import org.m.clinic.model.Doctor;
 
 @NoArgsConstructor
@@ -14,7 +15,7 @@ import org.m.clinic.model.Doctor;
 public class DoctorDto extends AbstractDto<Doctor> {
 
   private Long id;
-  private Long userId;
+  private UserDto userDto;
   private String specialization;
   private int experienceYears;
 

@@ -19,4 +19,9 @@ public class UserService extends CrudService<User, Long> {
   protected PrimaryRepository<User, Long> getRepository() {
     return userRepository;
   }
+
+  public User findByEmail(String email) {
+    return userRepository.findByEmail(email)
+        .orElse(null);
+  }
 }
