@@ -24,22 +24,11 @@ public class UserController extends CrudController<User, UserDto> {
 
   @Override
   protected UserDto convertToDto(User user) {
-    var dto = new UserDto();
-    dto.setId(user.getId());
-    dto.setEmail(user.getEmail());
-    dto.setFirstName(user.getFirstName());
-    dto.setLastName(user.getLastName());
-    dto.setRole(user.getRole());
-    return dto;
+    return UserMapper.INSTANCE.entityToDto( user );
   }
 
   @Override
   protected User mapDtoToEntity(UserDto requestBody, User entityToFill) {
-    entityToFill.setEmail(requestBody.getEmail());
-    entityToFill.setPassword(requestBody.getPassword());
-    entityToFill.setFirstName(requestBody.getFirstName());
-    entityToFill.setLastName(requestBody.getLastName());
-    entityToFill.setRole(requestBody.getRole());
-    return entityToFill;
+    return UserMapper.INSTANCE.dtoToEntity( requestBody );
   }
 }

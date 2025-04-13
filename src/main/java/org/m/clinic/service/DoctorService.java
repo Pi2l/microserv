@@ -8,12 +8,24 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class DoctorService extends CrudService<Doctor, Long> {
+public class DoctorService extends AbstractUserService<Doctor> {
 
   private final DoctorRepository doctorRepository;
+  private final UserService userService;
 
   @Override
   protected PrimaryRepository<Doctor, Long> getRepository() {
     return doctorRepository;
+  }
+
+  @Override
+  public Doctor create(Doctor entity) {
+    checkUserNotConnectedToOtherEntity( entity );
+    return super.create( entity );
+  }
+
+  @Override
+  protected UserService getUserService() {
+    return userService;
   }
 }

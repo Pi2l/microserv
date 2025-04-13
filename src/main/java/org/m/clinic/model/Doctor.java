@@ -19,7 +19,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Doctor extends Auditable implements HasIdentifier {
+public class Doctor extends Auditable implements HasIdentifier, HasUser {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
