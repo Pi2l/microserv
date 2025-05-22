@@ -2,6 +2,8 @@ package org.m.clinic.model;
 
 import java.util.Date;
 
+import org.m.lib.model.HasIdentifier;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

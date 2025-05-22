@@ -2,7 +2,8 @@ package org.m.clinic.service;
 
 import lombok.AllArgsConstructor;
 import org.m.clinic.model.User;
-import org.m.clinic.repository.PrimaryRepository;
+import org.m.lib.repository.PrimaryRepository;
+import org.m.lib.service.CrudService;
 import org.m.clinic.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

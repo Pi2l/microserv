@@ -5,7 +5,7 @@ import org.m.clinic.api.v1.shared.CrudController;
 import org.m.clinic.model.AvailableSlot;
 import org.m.clinic.model.Doctor;
 import org.m.clinic.service.AvailableSlotService;
-import org.m.clinic.service.CrudService;
+import org.m.lib.service.CrudService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

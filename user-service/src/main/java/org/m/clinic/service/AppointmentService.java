@@ -2,7 +2,8 @@ package org.m.clinic.service;
 
 import org.m.clinic.model.Appointment;
 import org.m.clinic.repository.AppointmentRepository;
-import org.m.clinic.repository.PrimaryRepository;
+import org.m.lib.repository.PrimaryRepository;
+import org.m.lib.service.CrudService;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;

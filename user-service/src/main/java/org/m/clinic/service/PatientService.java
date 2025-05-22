@@ -3,7 +3,7 @@ package org.m.clinic.service;
 import lombok.AllArgsConstructor;
 import org.m.clinic.model.Patient;
 import org.m.clinic.repository.PatientRepository;
-import org.m.clinic.repository.PrimaryRepository;
+import org.m.lib.repository.PrimaryRepository;
 import org.springframework.stereotype.Service;
 
 @Service

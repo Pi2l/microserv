@@ -1,10 +1,9 @@
 package org.m.clinic.api.v1.patient;
 
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.m.clinic.api.v1.shared.CrudController;
 import org.m.clinic.model.Patient;
-import org.m.clinic.service.CrudService;
+import org.m.lib.service.CrudService;
 import org.m.clinic.service.PatientService;
 import org.m.clinic.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;

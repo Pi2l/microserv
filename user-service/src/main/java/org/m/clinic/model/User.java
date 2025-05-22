@@ -3,6 +3,8 @@ package org.m.clinic.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import org.m.lib.model.HasIdentifier;
+
 @Entity
 @Table(name = "users")
 @Getter

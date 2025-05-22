@@ -2,6 +2,8 @@ package org.m.clinic.model;
 
 import java.time.LocalDateTime;
 
+import org.m.lib.model.HasIdentifier;
+
 import jakarta.persistence.*;
 import lombok.*;
 

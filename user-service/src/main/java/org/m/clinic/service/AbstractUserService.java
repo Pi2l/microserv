@@ -1,6 +1,7 @@
 package org.m.clinic.service;
 
-import org.m.clinic.model.HasIdentifier;
+import org.m.lib.model.HasIdentifier;
+import org.m.lib.service.CrudService;
 import org.m.clinic.model.HasUser;
 
 public abstract class AbstractUserService<T extends HasUser & HasIdentifier>

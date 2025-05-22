@@ -3,7 +3,7 @@ package org.m.clinic.api.v1.user;
 import lombok.RequiredArgsConstructor;
 import org.m.clinic.api.v1.shared.CrudController;
 import org.m.clinic.model.User;
-import org.m.clinic.service.CrudService;
+import org.m.lib.service.CrudService;
 import org.m.clinic.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

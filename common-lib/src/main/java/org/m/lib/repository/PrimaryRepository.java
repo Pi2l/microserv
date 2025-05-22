@@ -1,6 +1,6 @@
-package org.m.clinic.repository;
+package org.m.lib.repository;
 
-import org.m.clinic.model.HasIdentifier;
+import org.m.lib.model.HasIdentifier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.NoRepositoryBean;

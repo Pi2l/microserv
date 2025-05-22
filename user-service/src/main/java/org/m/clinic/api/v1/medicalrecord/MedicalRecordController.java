@@ -6,8 +6,8 @@ import org.m.clinic.model.Appointment;
 import org.m.clinic.model.Doctor;
 import org.m.clinic.model.MedicalRecord;
 import org.m.clinic.model.Patient;
-import org.m.clinic.service.CrudService;
 import org.m.clinic.service.MedicalRecordService;
+import org.m.lib.service.CrudService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
