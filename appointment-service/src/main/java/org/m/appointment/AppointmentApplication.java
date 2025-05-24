@@ -1,13 +1,13 @@
-package org.m.clinic;
+package org.m.appointment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class AppointmentApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(Application.class, args);
+    SpringApplication.run(AppointmentApplication.class, args);
   }
 
 }

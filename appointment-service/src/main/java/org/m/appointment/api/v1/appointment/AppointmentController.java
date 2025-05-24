@@ -1,9 +1,10 @@
-package org.m.clinic.api.v1.appointment;
+package org.m.appointment.api.v1.appointment;
 
 import lombok.RequiredArgsConstructor;
-import org.m.clinic.api.v1.shared.CrudController;
-import org.m.clinic.model.Appointment;
-import org.m.clinic.service.AppointmentService;
+
+import org.m.appointment.api.v1.shared.CrudController;
+import org.m.appointment.model.Appointment;
+import org.m.appointment.service.AppointmentService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

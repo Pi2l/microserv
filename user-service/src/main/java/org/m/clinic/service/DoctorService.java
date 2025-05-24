@@ -2,8 +2,10 @@ package org.m.clinic.service;
 
 import lombok.AllArgsConstructor;
 import org.m.clinic.model.Doctor;
+import org.m.clinic.model.Role;
 import org.m.clinic.repository.DoctorRepository;
 import org.m.lib.repository.PrimaryRepository;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -27,5 +29,11 @@ public class DoctorService extends AbstractUserService<Doctor> {
   @Override
   protected UserService getUserService() {
     return userService;
+  }
+
+  @Override
+  public Specification<Doctor> getDefaultFilter() {
+    Specification<Doctor> filter = getRoleFilter(Role.DOCTOR.name());
+    return filter.and(super.getDefaultFilter());
   }
 }

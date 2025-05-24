@@ -2,7 +2,6 @@ package org.m.clinic.api.v1.medicalrecord;
 
 import lombok.RequiredArgsConstructor;
 import org.m.clinic.api.v1.shared.CrudController;
-import org.m.clinic.model.Appointment;
 import org.m.clinic.model.Doctor;
 import org.m.clinic.model.MedicalRecord;
 import org.m.clinic.model.Patient;
@@ -32,7 +31,6 @@ public class MedicalRecordController extends CrudController<MedicalRecord, Medic
     dto.setId(medicalRecord.getId());
     dto.setPatientId(medicalRecord.getPatient() == null ? null : medicalRecord.getPatient().getId());
     dto.setDoctorId(medicalRecord.getDoctor() == null ? null : medicalRecord.getDoctor().getId());
-    dto.setAppointmentId(medicalRecord.getAppointment() == null ? null : medicalRecord.getAppointment().getId());
     dto.setDiagnosis(medicalRecord.getDiagnosis());
     dto.setPrescription(medicalRecord.getPrescription());
     return dto;
@@ -43,7 +41,6 @@ public class MedicalRecordController extends CrudController<MedicalRecord, Medic
     entityToFill.setId(dto.getId());
     entityToFill.setPatient(Patient.builder().id(dto.getId()).build());
     entityToFill.setDoctor(Doctor.builder().id(dto.getDoctorId()).build());
-    entityToFill.setAppointment(Appointment.builder().id(dto.getAppointmentId()).build());
     entityToFill.setDiagnosis(dto.getDiagnosis());
     entityToFill.setPrescription(dto.getPrescription());
     return entityToFill;

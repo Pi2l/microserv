@@ -17,7 +17,6 @@ public class MedicalRecordDto extends AbstractDto<MedicalRecord> {
   private Long id;
   private Long patientId;
   private Long doctorId;
-  private Long appointmentId;
 
   @NotNull
   private String diagnosis;

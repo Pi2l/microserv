@@ -1,5 +1,6 @@
 package org.m.clinic.model;
 
+import org.m.lib.model.Auditable;
 import org.m.lib.model.HasIdentifier;
 
 import jakarta.persistence.Column;
@@ -32,10 +33,6 @@ public class MedicalRecord extends Auditable implements HasIdentifier {
   @ManyToOne
   @JoinColumn(name = "doctor_id")
   private Doctor doctor;
-
-  @ManyToOne
-  @JoinColumn(name = "appointment_id")
-  private Appointment appointment;
 
   @Column(nullable = false)
   private String diagnosis;

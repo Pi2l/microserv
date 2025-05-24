@@ -2,6 +2,7 @@ package org.m.clinic.model;
 
 import java.time.ZonedDateTime;
 
+import org.m.lib.model.Auditable;
 import org.m.lib.model.HasIdentifier;
 
 import jakarta.persistence.Column;

@@ -17,17 +17,21 @@ public abstract class CrudService<T extends HasIdentifier, IdType> {
   }
 
   public Page<T> getAll(Pageable pageable, Specification<T> filter) {
-    return getRepository().findAll(filter, pageable);
+    return getRepository().findAll(Specification.where(getDefaultFilter()).and(filter), pageable);
   }
 
   public T get(IdType id) {
-    return getRepository().findOne(buildEqualSpec("id", id))
+    return getRepository().findOne(buildEqualSpec("id", id).and(getDefaultFilter()))
         .orElse(null);
   }
 
   public T get(Specification<T> filter) {
     return getRepository().findOne(filter)
         .orElse(null);
+  }
+
+  public Specification<T> getDefaultFilter() {
+    return null;
   }
 
   public T create(T entity) {

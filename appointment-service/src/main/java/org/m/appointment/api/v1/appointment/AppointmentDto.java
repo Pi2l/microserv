@@ -1,16 +1,19 @@
-package org.m.clinic.api.v1.appointment;
+package org.m.appointment.api.v1.appointment;
+
+import java.time.LocalDateTime;
+
+import org.m.appointment.api.v1.shared.AbstractDto;
+import org.m.appointment.model.Appointment;
+import org.m.appointment.model.ProcedureType;
+import org.m.appointment.model.Status;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.constraints.NotBlank;
+
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.m.clinic.api.v1.shared.AbstractDto;
-import org.m.clinic.model.*;
-
-import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,17 +23,20 @@ public class AppointmentDto extends AbstractDto<Appointment> {
 
   private Long id;
 
-  @NotBlank
+  @NotNull
   private Long patientId;
 
-  @NotBlank
+  @NotNull
   private Long doctorId;
+
+  @NotNull
+  private ProcedureType type;
 
   @NotNull
   private Status status;
 
   @NotNull
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm")
   private LocalDateTime appointmentTime;
 
   @Override
