@@ -11,9 +11,9 @@
 
     <modules>
         <module>eureka-server</module>
-        <module>api-gateway</module>
         <module>user-service</module>
         <module>appointment-service</module>
+        <module>available-slot-service</module>
         <module>common-lib</module>
     </modules>
 

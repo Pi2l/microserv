@@ -16,10 +16,10 @@ spring:
     open-in-view: true
 
   application:
-    name: APPOINTMENT
+    name: AVAILABLE-SLOT-SERVICE
 
 server:
-  port: 8082
+  port: 8083
 
 eureka:
   client:
