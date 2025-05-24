@@ -2,8 +2,10 @@ package org.m.availableslot.api.v1.availableslot;
 
 import java.time.ZonedDateTime;
 
+import org.m.availableslot.api.v1.shared.AbstractDto;
 import org.m.availableslot.model.AvailableSlot;
-import org.m.lib.api.shared.AbstractDto;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -30,6 +32,7 @@ public class AvailableSlotDto extends AbstractDto<AvailableSlot> {
 
   private Boolean isBooked = false;
 
+  @JsonIgnore
   @Override
   public AvailableSlot getNewEntity() {
     return new AvailableSlot();
