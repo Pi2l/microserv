@@ -1,9 +1,9 @@
 package org.m.availableslot.service;
 
+import org.m.availableslot.api.v1.shared.ItemNotFoundException;
 import org.m.availableslot.api.v1.user.DoctorDto;
 import org.m.availableslot.model.AvailableSlot;
 import org.m.availableslot.repository.AvailableSlotRepository;
-import org.m.lib.api.shared.ItemNotFoundException;
 import org.m.lib.repository.PrimaryRepository;
 import org.m.lib.service.CrudService;
 import org.springframework.stereotype.Service;

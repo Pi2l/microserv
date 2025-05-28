@@ -1,6 +1,5 @@
 package org.m.availableslot.api.v1.shared;
 
-import org.m.lib.api.shared.ItemNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

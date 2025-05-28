@@ -1,4 +1,4 @@
-package org.m.lib.api.shared;
+package org.m.availableslot.api.v1.shared;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

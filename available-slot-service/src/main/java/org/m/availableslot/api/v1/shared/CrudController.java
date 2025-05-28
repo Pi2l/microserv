@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.hibernate.validator.constraints.Range;
 import org.m.availableslot.repository.rsql.CustomRsqlVisitor;
-import org.m.lib.api.shared.ItemNotFoundException;
-import org.m.lib.api.shared.PageResponse;
 import org.m.lib.model.HasIdentifier;
 import org.m.lib.service.CrudService;
 import org.springframework.data.domain.Page;
