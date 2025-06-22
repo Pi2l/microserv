@@ -1,0 +1,11 @@
+server:
+  port: 8888
+spring:
+  name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Pi2l/configuration-m.git
+          default-label: main
+          search-paths: "{application}"

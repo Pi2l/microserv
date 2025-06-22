@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: user-service
+  profiles:
+    active: dev
+
+  config:
+    import: "configserver:http://localhost:8888"
+  cloud:
+    config:
+      uri: http://localhost:8888
+      label: 318ee2f6a40fb29a12a2700c0c6e9e67559949c2
+      fail-fast: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, info, env
